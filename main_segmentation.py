@@ -8,7 +8,7 @@ import tempfile
 import os
 
 st.set_page_config(page_title="Image Segmentation", layout="wide")
-st.title("🖼️ Image Segmentation App")
+st.title("Image Segmentation App")
 st.write("Upload your model and image for segmentation")
 
 def dice_coef(y_true, y_pred, smooth=1):
@@ -159,3 +159,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
