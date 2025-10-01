@@ -9,7 +9,7 @@ st.title("🖼️ Image Segmentation")
 @st.cache_resource
 def load_model():
     try:
-        model_path = "/content/drive/MyDrive/segmentation_model.h5"
+        model_path = "/content/drive/MyDrive/segmentation_unet_final.h5"
         model = tf.keras.models.load_model(model_path)
         return model
     except Exception as e:
@@ -27,3 +27,4 @@ if model:
         st.image(image, use_column_width=True)
 else:
     st.error("Model not found!")
+
