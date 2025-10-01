@@ -16,7 +16,7 @@ def load_segmentation_model():
         model_url = "https://drive.google.com/uc?id=1JwVsxKFaUMyxRgMUTE-yhpKZMqVU7P3i"
         
         import gdown
-        output_path = "segmentation_model.h5"
+        output_path = "segmentation_unet_final.h5"
         gdown.download(model_url, output_path, quiet=False)
         
         model = tf.keras.models.load_model(output_path, custom_objects={
@@ -124,6 +124,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
