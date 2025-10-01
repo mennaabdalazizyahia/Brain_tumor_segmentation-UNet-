@@ -166,11 +166,9 @@ def create_overlay(original, mask, alpha=0.5):
     return overlay
 
 def generate_sample_mask(image_shape):
-    """إنشاء ماسك تجريبي للعرض"""
     height, width = image_shape[:2]
     mask = np.zeros((height, width))
     
-    # إنشاء أشكال عشوائية للماسك
     center_x, center_y = width // 2, height // 2
     radius = min(center_x, center_y) - 10
     
@@ -186,7 +184,7 @@ def generate_sample_mask(image_shape):
     return mask
 
 def main():
-    st.info("🔬 هذا تطبيق تجريبي لعرض نتائج Image Segmentation")
+    st.info("Image Segmentation")
     
     uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'jpeg', 'png','tif','tiff','TIF','TIFF'])
     
@@ -238,3 +236,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
