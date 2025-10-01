@@ -13,7 +13,7 @@ st.write("Upload an image for semantic segmentation")
 @st.cache_resource
 def load_segmentation_model():
     try:
-        model_url = "https://drive.google.com/uc?id=1JwVsxKFaUMyxRgMUTE-yhpKZMqVU7P3i"
+        model_url = "https://drive.google.com/file/d/1MimIt5qq_NyzxqGoZIBakqv4JhdpkjRL/view?usp=drive_link"
         
         import gdown
         output_path = "segmentation_unet_final.h5"
@@ -124,6 +124,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
