@@ -13,18 +13,20 @@ st.write("Upload an image for semantic segmentation")
 @st.cache_resource
 def load_segmentation_model():
     try:
-        model_url = "https://drive.google.com/file/d/1MimIt5qq_NyzxqGoZIBakqv4JhdpkjRL/view?usp=drive_link"
+        model_path = "/content/drive/MyDrive/segmentation_unet_final.h5"
         
-        import gdown
-        output_path = "segmentation_unet_final.h5"
-        gdown.download(model_url, output_path, quiet=False)
-        
-        model = tf.keras.models.load_model(output_path, custom_objects={
-            'dice_coef': dice_coef,
-            'iou_coef': iou_coef,
-            'f1_score': f1_score
-        })
-        return model
+        if os.path.exists(model_path):
+            model = tf.keras.models.load_model(model_path, custom_objects={
+                'dice_coef': dice_coef,
+                'iou_coef': iou_coef,
+                'f1_score': f1_score
+            })
+            st.success("✅ Model loaded successfully from Google Drive!")
+            return model
+        else:
+            st.error(f"❌ Model not found at: {model_path}")
+            st.info("📁Please make sure the model file exists in your Google Drive")
+            return None
     except Exception as e:
         st.error(f"Error loading model: {e}")
         return None
@@ -124,6 +126,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
