@@ -13,7 +13,7 @@ st.write("Upload an image for semantic segmentation")
 @st.cache_resource
 def load_segmentation_model():
     try:
-        model_path = "/content/drive/MyDrive/segmentation_unet_final.h5"
+        model_path = "segmentation_unet_final.h5"
         model = tf.keras.models.load_model(model_path, custom_objects={
             'dice_coef': dice_coef,
             'iou_coef': iou_coef,
@@ -119,5 +119,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
